@@ -5,7 +5,7 @@ Assessment project for Betsson - Senior Data Engineer position
 Initial Setup
 
         git clone <repo_url>
-        cd codebase
+        cd Bettson_Assignment
 
 
 Install Dependencies
