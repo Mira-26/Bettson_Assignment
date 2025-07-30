@@ -1,0 +1,35 @@
+paths:
+  raw_csv: data/source/Invoices_Year_2009-2010.csv
+  raw_dest_base: data/destination/raw/invoices.parquet
+  trans_dest_base: data/destination//transformed/invoices.parquet
+  model_dest_base: data/model
+  raw_dir: data/raw
+  processed_dir: data/processed
+  pii_dest_base: data/destination/pii
+  logs_path: logs/quality_issues
+parameters:
+  encoding: latin1
+
+
+schemas:
+  Dim_Date:
+    - {name: DateKey, type: int32}
+    - {name: Year, type: int16}
+    - {name: Month, type: int8}
+    - {name: Day, type: int8}
+  Dim_Customer:
+    - {name: CustomerKey, type: int32}
+    - {name: CustomerID, type: string}
+    - {name: CustomerName, type: string}
+    - {name: Country, type: string}
+  Dim_Product:
+    - {name: ProductKey, type: int32}
+    - {name: ProductID, type: string}
+    - {name: Description, type: string}
+    - {name: Price, type: float64}
+  Fact_Invoice:
+    - {name: DateKey, type: int32}
+    - {name: CustomerKey, type: int32}
+    - {name: ProductKey, type: int32}
+    - {name: Quantity, type: int32}
+    - {name: LineTotal, type: float64}
